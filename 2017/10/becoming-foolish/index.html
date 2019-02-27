@@ -1,0 +1,752 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="lYE6Wy4AMVpA-paUiNWFLIZFk8vqATN4AedYdumNuVo">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=IBM Plex Sans:300,300italic,400,400italic,700,700italic|Roboto Condensed:300,300italic,400,400italic,700,700italic|Gloria Hallelujah:300,300italic,400,400italic,700,700italic|Fira Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="In Absentia" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="The book The Pragmatic Programmer: From Journeyman to Master by Andy Hunt and Dave Thomas suggests that as developers, we should “learn at least one new language every year.” (pg. 14) When I recently">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Becoming Foolish">
+<meta property="og:url" content="http://hmemcpy.com/2017/10/becoming-foolish/index.html">
+<meta property="og:site_name" content="In Absentia">
+<meta property="og:description" content="The book The Pragmatic Programmer: From Journeyman to Master by Andy Hunt and Dave Thomas suggests that as developers, we should “learn at least one new language every year.” (pg. 14) When I recently">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-02-27T05:10:03.576Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Becoming Foolish">
+<meta name="twitter:description" content="The book The Pragmatic Programmer: From Journeyman to Master by Andy Hunt and Dave Thomas suggests that as developers, we should “learn at least one new language every year.” (pg. 14) When I recently">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://hmemcpy.com/2017/10/becoming-foolish/">
+
+
+
+
+
+  <title>Becoming Foolish | In Absentia</title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70273-3', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">In Absentia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">by Igal Tabachnik</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-rss">
+          <a href="/atom.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-rss"></i> <br>
+            
+            Subscribe
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hmemcpy.com/2017/10/becoming-foolish/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Igal Tabachnik">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/601206?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="In Absentia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Becoming Foolish</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-20T05:00:39+00:00">
+                2017-10-20
+              </time>
+            
+
+            
+
+            
+            
+              <span class="post-edit">
+                <span class="post-meta-divider">|</span>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <a href="https://github.com/hmemcpy/hmemcpy.com/edit/master/source/_posts/2017-10-20-becoming-foolish.md">Edit this page</a>
+              </span>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/becoming-foolish/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/10/becoming-foolish/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>The book <a href="https://pragprog.com/book/tpp/the-pragmatic-programmer" target="_blank" rel="noopener"><em>The Pragmatic Programmer: From Journeyman to Master</em></a> by Andy Hunt and Dave Thomas suggests that as developers, we should “learn at least one new language every year.” (pg. 14)</p>
+<p>When I recently asked a roomful of developers, if there’s anyone who had learned a new language this year, only very few hands went up. A year ago today, that would have been me in the audience, keeping my hands down.</p>
+<a id="more"></a>
+<p>I had been a happy C# developer for over a decade, starting professionally sometime before .NET 2.0 was released. During my career I had the privilege of working in a very specialized field - building tools for other developers, mainly in form of extensions to Visual Studio itself. My job often required from me to understand the code better than the compiler, in fact, I often had to take a peek under the hood to understand what the compiler, MSIL, JIT, and sometimes native code were doing, all long before tools like <a href="https://github.com/dotnet/roslyn" target="_blank" rel="noopener">Roslyn</a> even existed. I knew implementation details of the runtime that were not documented anywhere. I knew most of the corner cases and language gotchas. But overall, my language, C#, was a very powerful hammer, capable of handling any kind of nail.</p>
+<p>Which caused me to pretty much ignore any other languages out there, which weren’t relevant to my day job. Whenever people from the F# camp were boasting their lack of nulls, pattern matching, or not needing semicolons or braces, I would typically shrug it away. I have spent years of my career learning to use productivity tools, such as ReSharper and IntelliJ IDEA, to the point where every bit of boilerplate was one keystroke away. I simply didn’t care! Having a few nice features was never a good enough reason for me to switch a programming language – why would I even bother, when my language that I’m an expert in, could kinda-sorta do that too? Why would a different <em>syntax</em> make a difference in how I write software? After all, doesn’t it all compile down to the same thing?</p>
+<p>Because when you really get down to it, (almost) all programming languages are, essentially, this:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In most programming languages that we’ve ever experienced, the world as we know it <em>lives and dies</em> in the confines of the opening and closing brace of the <code>main</code> function, which is the entry point to our application. Everything that happens in our program, the universe our program interacts with, happens between those two braces. By its very definition, our program returns an <em>exit code</em>, specifying whether it succeeded or not, and everything else happens as a side-effect.</p>
+<p>The implication, that all the work is done between the two braces of the <code>main</code> method, is what drives <strong>everything</strong> we know about this model — every design pattern, every practice, every discipline, every tool, library, or framework — were created to let us manage this model of our world that exists between those two braces. We have decades of knowledge in how to do this properly in almost any language.</p>
+<p>For me, this was the core, the very foundation on which all the software is built! It was the one thing that was the ultimate truth, regardless of the programming language.</p>
+<p>And it was like this, until <strong>Haskell ruined it for me</strong>!</p>
+<p>I will not go into details – I inadvertently did that in my <a href="/2017/05/from-net-to-scala-and-beyond-a-journey-to-functional-programming/">previous post</a>. But during watching a talk on seemingly unrelated topic, the speaker managed to sneak some Haskell in there! Until that moment, I haven’t really seen any Haskell code before — I’ve always dismissed it as irrelevant — and there it was,  staring me in the face.</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="title">main</span> :: <span class="type">IO</span> () <span class="comment">-- reads as 'main, having the return type of IO ()'</span></span><br></pre></td></tr></table></figure>
+<p>What I saw being explained is that Haskell doesn’t actually do any work inside of its <code>main</code> function. Instead, the program “describes” in a declarative way what is going to have happen when your program executes, and this “description” will be returned into the Haskell runtime, and exactly what was described will happen - with no possible <em>side-effects</em> or surprises. It flips the entire idea of execution on its head - the work, the actual execution of effects is not being done <em>inside</em> of <code>main</code> - it’s done on the <em>outside</em>!</p>
+<p>Seeing this for the first time, trying to wrap my head around it, had created a <em>bug</em> inside my head. It had conflicted with what I knew - that all languages worked the same, and the difference was merely syntax! But here, I was seeing something that just worked differently, and did not fit my world view! I struggled with trying to understand it, and it took me a couple of more re-watches, until one day, it finally clicked!</p>
+<p>In one single moment, I suddenly understood the <em>idea</em> of Haskell, of why it works the way it does. Everything just clicked into place and I finally “understood monads”! To me, it felt like Neo finally coming to terms with the fact that <a href="https://www.youtube.com/watch?v=uAXtO5dMqEI" target="_blank" rel="noopener">there is no spoon</a>, and only then he’s able to bend it. </p>
+<p>I am thankful for <a href="https://twitter.com/silverSpoon" target="_blank" rel="noopener">Andrea Magnorsky</a>‘s excellent keynote talk, <a href="https://www.youtube.com/watch?v=WBu43Tj0zOY" target="_blank" rel="noopener">Inviting Everyone to the Party</a>, which helped me realize that not only what I had experienced had a name, it was, in fact, a textbook definition of the phenomenon: what I had experienced is called a <strong>paradigm shift</strong>.</p>
+<p>The term “paradigm shift”, coined by <a href="https://en.wikipedia.org/wiki/Thomas_Kuhn" target="_blank" rel="noopener">Thomas Kuhn</a> in his 1962 book <a href="https://en.wikipedia.org/wiki/The_Structure_of_Scientific_Revolutions" target="_blank" rel="noopener">The Structure of Scientific Revolutions</a>, describes a process where if an established model no longer fits the world view, it is rejected and simultaneously replaced by another. Kuhn says:<br><blockquote><p>The decision to reject one paradigm is always simultaneously the decision to accept another, and the judgment leading to that decision involves the comparison of both paradigms with nature and with each other.</p>
+<footer><strong>Thomas Kuhn</strong><cite>The Structure of Scientific Revolutions: 50th Anniversary Edition (pg. 78)</cite></footer></blockquote></p>
+<p>I had two conflicting ideas, and when finally that other idea started making sense, my mind accepted it, and immediately switched to that new idea - the switch was instantaneous! I was able to see things from a different perspective, understanding a whole new world model, which is precisely the definition of Kuhn’s “paradigm shift”.</p>
+<p>But something else happened – I realized just how little I knew about software, there was an entire world out there that was unknown to me! What I knew until that moment, all my expertise in a narrow field was just a tip of the iceberg. And this realization removed a barrier I had that prevented me from trying to learn new languages and experimenting with new things. Where previously I would dismiss these things as irrelevant, I suddenly gained interest in things that I never had interest in before. In the past year alone I’ve used Haskell, Clojure, and Rust. I’ve looked at Erlang, Elm and PureScript. I am working my way through <a href="https://mitpress.mit.edu/sicp/full-text/book/book.html" target="_blank" rel="noopener">SICP</a> (see <a href="https://github.com/sarabander/sicp-pdf" target="_blank" rel="noopener">modern PDF compilation</a>) and learning <a href="https://github.com/hmemcpy/milewski-ctfp-pdf" target="_blank" rel="noopener">Category Theory</a>. I’ve done all that because for the first time in a long time, I am genuinely curious about what these languages/paradigms can <em>teach</em> me! I really don’t remember the last time I was this excited about learning. Genuinely proud of being able to say – <em>“I don’t know everything!”</em> – is incredibly liberating!</p>
+<p>This exact sentiment is also echoed in Bret Victor’s fantastic, and highly entertaining keynote talk, <a href="https://vimeo.com/71278954" target="_blank" rel="noopener">The Future of Programming</a>, where he pretended he was a software developer in 1973, and speculated about the next 40 years of programming. The last 5 minutes of that talk has some of the best advice I ever heard, and I wish I understood it sooner. He said,<br><blockquote><p>…you have to say to yourself – “I don’t know what I’m doing. We, as a field, don’t know what we’re doing. We don’t know what programming is, we don’t know what computing is, we don’t even know what a computer is.” And once you truly understand that, once you truly believe that – then you’re free, and you can think anything.</p>
+<footer><strong>Bret Victor</strong><cite><a href="https://vimeo.com/71278954" target="_blank" rel="noopener">The Future of Programming</a></cite></footer></blockquote></p>
+<p><em>Stay hungry. Stay foolish.</em> Be free!</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/from-net-to-scala-and-beyond-a-journey-to-functional-programming/" rel="next" title="From .NET to Scala and beyond: a journey to Functional Programming">
+                <i class="fa fa-chevron-left"></i> From .NET to Scala and beyond: a journey to Functional Programming
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/601206?v=3&s=460" alt="Igal Tabachnik">
+          <p class="site-author-name" itemprop="name">Igal Tabachnik</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hmemcpy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/hmemcpy" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/story/8205" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  StackOverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://il.linkedin.com/in/igaltabachnik" target="_blank" title="LinkedIn">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  LinkedIn
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Igal Tabachnik</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://hmemcpy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://hmemcpy.com/2017/10/becoming-foolish/';
+          this.page.identifier = '2017/10/becoming-foolish/';
+          this.page.title = 'Becoming Foolish';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hmemcpy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

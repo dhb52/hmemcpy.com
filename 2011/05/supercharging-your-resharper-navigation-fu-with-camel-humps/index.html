@@ -1,0 +1,752 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="lYE6Wy4AMVpA-paUiNWFLIZFk8vqATN4AedYdumNuVo">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=IBM Plex Sans:300,300italic,400,400italic,700,700italic|Roboto Condensed:300,300italic,400,400italic,700,700italic|Gloria Hallelujah:300,300italic,400,400italic,700,700italic|Fira Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="In Absentia" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="I blog about ReSharper a lot, mostly due to it’s being an awesome product which greatly improves my productivity. One of the major tips any ReSharper user is given &amp;ndash; use the keyboard shortcuts.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Supercharging your ReSharper navigation-fu with Camel Humps">
+<meta property="og:url" content="http://hmemcpy.com/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/index.html">
+<meta property="og:site_name" content="In Absentia">
+<meta property="og:description" content="I blog about ReSharper a lot, mostly due to it’s being an awesome product which greatly improves my productivity. One of the major tips any ReSharper user is given &amp;ndash; use the keyboard shortcuts.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://hmemcpy.com/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/image1.png">
+<meta property="og:image" content="http://hmemcpy.com/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/image2.png">
+<meta property="og:image" content="http://hmemcpy.com/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/image3.png">
+<meta property="og:updated_time" content="2019-02-27T05:10:03.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Supercharging your ReSharper navigation-fu with Camel Humps">
+<meta name="twitter:description" content="I blog about ReSharper a lot, mostly due to it’s being an awesome product which greatly improves my productivity. One of the major tips any ReSharper user is given &amp;ndash; use the keyboard shortcuts.">
+<meta name="twitter:image" content="http://hmemcpy.com/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/image1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://hmemcpy.com/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/">
+
+
+
+
+
+  <title>Supercharging your ReSharper navigation-fu with Camel Humps | In Absentia</title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70273-3', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">In Absentia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">by Igal Tabachnik</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-rss">
+          <a href="/atom.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-rss"></i> <br>
+            
+            Subscribe
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hmemcpy.com/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Igal Tabachnik">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/601206?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="In Absentia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Supercharging your ReSharper navigation-fu with Camel Humps</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2011-05-08T22:30:34+00:00">
+                2011-05-09
+              </time>
+            
+
+            
+
+            
+            
+              <span class="post-edit">
+                <span class="post-meta-divider">|</span>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <a href="https://github.com/hmemcpy/hmemcpy.com/edit/master/source/_posts/2011-05-09-supercharging-your-resharper-navigation-fu-with-camel-humps.md">Edit this page</a>
+              </span>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>I blog about <a href="http://www.jetbrains.com/resharper/" target="_blank">ReSharper</a> a <em>lot</em>, mostly due to it’s being an awesome product which greatly improves my productivity. One of the major tips any ReSharper user is given &ndash; use the keyboard shortcuts. A lot. Some even go completely mouseless!</p>
+<a id="more"></a>
+<p>Here’s a little tip to make navigation your code even better: <a href="http://blogs.jetbrains.com/dotnet/2008/02/resharper-in-detail-camelhumps/" target="_blank">CamelHumps</a>. CamelHumps is a ReSharper feature that allows navigating and selecting parts of compound names, according to <a href="http://en.wikipedia.org/wiki/CamelCase" target="_blank">camelCase</a> rules, so that if you have a method named <code>CreateUser_WithValidUsernameAndPassword_UserIsCreated</code> (like I name my unit tests, <code>UnderTest_Scenario_ExpectedResult</code>), with CamelHumps enabled, you would be able to move the caret to the beginning of every word using <strong>Ctrl-Left/Right</strong>.</p>
+<p>While this is a great feature, I wouldn’t want it enabled all the time, since it’s also affects Extend/Shrink Selection (Ctrl-W), which sometimes can be annoying. Fortunately, those actions are available as Visual Studio actions, so they can be used even if CameHumps is turned off globally:</p>
+<ul>
+<li>_ReSharper_HumpNext_ &#8211; move caret to next hump/word</li>
+<li>_ReSharper_HumpPrev_ &#8211; move caret to previous hump/word</li>
+<li>_ReSharper_HumpNextExtend_ &#8211; expand selection to next hump</li>
+<li>_ReSharper_HumpPrevExtend_ &#8211; expand selection to previous hump</li>
+</ul>
+<p>I recommend binding the _ReSharper_HumpNext_ and _ReSharper_HumpPrev_ to <strong>Alt-Right</strong> and <strong>Alt-Left</strong>, and _ReSharper_HumpNextExtend_ and _ReSharper_HumpPrevExtend_ to <strong>Alt-Shift-Right</strong> and <strong>Alt-Shift-Left</strong>, respectively. Make sure you select <strong>Text Editor</strong> under <em>Use new shortcut in</em> in Tools &ndash; Options &ndash; Keyboard, or your binding might not work.</p>
+<p><strong>Please note:</strong> the later binding breaks the <a href="http://weblogs.asp.net/scottgu/archive/2010/04/26/box-selection-and-multi-line-editing-with-vs-2010.aspx" target="_blank">Box Selection</a> feature in Visual Studio 2008, however greatly improves it in Visual Studio 2010 &ndash; it makes box selection respect the camelCase as well!</p>
+<p>Here’s how it works &ndash; let’s say I want to rename the word <em>Spelling</em> to <em>Proofreading</em> in the method name, and the caret is inside the method body:</p>
+<p><strong>Step 1:</strong> Press <strong>Ctrl-[</strong> to jump to containing method (jumps to start of the method name)<br><img src="/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/image1.png"></p>
+<p><strong>Step 2:</strong> Press <strong>Alt-Right</strong> a few times to jump to the beginning of the word Spelling<br><img src="/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/image2.png"></p>
+<p><strong>Step 3:</strong> Press <strong>Alt-Shift-Right</strong> to select the word Spelling<br><img src="/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/image3.png"></p>
+<p>I’m using <a href="http://osherove.com/" target="_blank">Roy Osherove’s</a> excellent <a href="http://osherove.com/blog/2007/6/3/train-to-be-a-keyboard-master-with-keyboard-jedi.html" target="_blank">Keyboard Jedi</a> utility to demonstrate the keyboard shortcuts. Unfortunately it doesn’t work on a 64-bit Windows, but you can fix it with this <a href="http://codebetter.com/jameskovacs/2008/04/25/keyboard-jedi-on-vista-x64/" target="_blank">little hack</a> by <a href="http://jameskovacs.com/" target="_blank">James Kovacs</a>.</p>
+<p>Unfortunately, this doesn’t work in the rename dialog (and others). There’s a 3-year old <a href="http://youtrack.jetbrains.net/issue/RSRP-40844" target="_blank">issue</a> reported on the ReSharper’s Issue Tracker about this, however it hasn’t been added yet. Maybe it’s time, guys?</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2011/04/modifying-windows-live-writer-blog-content-in-publishnotificationhook-plugins-onprepublish/" rel="next" title="Modifying Windows Live Writer blog content in PublishNotificationHook plugins' OnPrePublish">
+                <i class="fa fa-chevron-left"></i> Modifying Windows Live Writer blog content in PublishNotificationHook plugins' OnPrePublish
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2011/05/how-to-make-testdriven-net-open-dotpeek-or-any-other-il-disassembler-instead-of-reflector/" rel="prev" title="How to make TestDriven.NET open dotPeek (or any other IL disassembler) instead of Reflector">
+                How to make TestDriven.NET open dotPeek (or any other IL disassembler) instead of Reflector <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/601206?v=3&s=460" alt="Igal Tabachnik">
+          <p class="site-author-name" itemprop="name">Igal Tabachnik</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hmemcpy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/hmemcpy" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/story/8205" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  StackOverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://il.linkedin.com/in/igaltabachnik" target="_blank" title="LinkedIn">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  LinkedIn
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Igal Tabachnik</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://hmemcpy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://hmemcpy.com/2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/';
+          this.page.identifier = '2011/05/supercharging-your-resharper-navigation-fu-with-camel-humps/';
+          this.page.title = 'Supercharging your ReSharper navigation-fu with Camel Humps';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hmemcpy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

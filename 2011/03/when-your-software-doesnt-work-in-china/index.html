@@ -1,0 +1,740 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="lYE6Wy4AMVpA-paUiNWFLIZFk8vqATN4AedYdumNuVo">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=IBM Plex Sans:300,300italic,400,400italic,700,700italic|Roboto Condensed:300,300italic,400,400italic,700,700italic|Gloria Hallelujah:300,300italic,400,400italic,700,700italic|Fira Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="In Absentia" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="I had an interesting bug submitted by a user, he wrote that our product was crashing in his Visual Studio 2010, which was a Traditional Chinese edition. Typemock Isolator, being a Visual Studio add-in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="When your software doesn&#39;t work in China">
+<meta property="og:url" content="http://hmemcpy.com/2011/03/when-your-software-doesnt-work-in-china/index.html">
+<meta property="og:site_name" content="In Absentia">
+<meta property="og:description" content="I had an interesting bug submitted by a user, he wrote that our product was crashing in his Visual Studio 2010, which was a Traditional Chinese edition. Typemock Isolator, being a Visual Studio add-in">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-02-27T05:10:03.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="When your software doesn&#39;t work in China">
+<meta name="twitter:description" content="I had an interesting bug submitted by a user, he wrote that our product was crashing in his Visual Studio 2010, which was a Traditional Chinese edition. Typemock Isolator, being a Visual Studio add-in">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://hmemcpy.com/2011/03/when-your-software-doesnt-work-in-china/">
+
+
+
+
+
+  <title>When your software doesn't work in China | In Absentia</title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70273-3', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">In Absentia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">by Igal Tabachnik</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-rss">
+          <a href="/atom.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-rss"></i> <br>
+            
+            Subscribe
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hmemcpy.com/2011/03/when-your-software-doesnt-work-in-china/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Igal Tabachnik">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/601206?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="In Absentia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">When your software doesn't work in China</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2011-03-17T11:57:31+00:00">
+                2011-03-17
+              </time>
+            
+
+            
+
+            
+            
+              <span class="post-edit">
+                <span class="post-meta-divider">|</span>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <a href="https://github.com/hmemcpy/hmemcpy.com/edit/master/source/_posts/2011-03-17-when-your-software-doesnt-work-in-china.md">Edit this page</a>
+              </span>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2011/03/when-your-software-doesnt-work-in-china/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2011/03/when-your-software-doesnt-work-in-china/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>I had an interesting bug submitted by a user, he wrote that <a href="http://www.typemock.com" target="_blank">our product</a> was crashing in his Visual Studio 2010, which was a Traditional Chinese edition.</p>
+<p><a href="http://www.typemock.com/typemock-isolator-product3" target="_blank">Typemock Isolator</a>, being a Visual Studio add-in, adds a menu next to the Tools menu in Visual Studio. It does so by looking for an index of the <em>Tools</em> menu in the main menu bar, and simply adding the <em>Typemock</em> menu after it. However, the <em>Tools</em> menu is only called that in the English locale. In other languages, the menu might be called differently. In French, for instance, it’s called <em>Outils</em>.</p>
+<a id="more"></a>
+<p>When creating a new Visual Studio 2008 Add-in (under Other Project Types &ndash; Extensibility), if selected the <em>Yes, create a Tools menu item</em> in page 4 of the wizard, the following code is generated in <code>OnConnect</code> method after completing the wizard:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"><span class="keyword">string</span> resourceName;</span><br><span class="line">ResourceManager resourceManager = <span class="keyword">new</span> ResourceManager(<span class="string">"MyAddin.CommandBar"</span>, Assembly.GetExecutingAssembly());</span><br><span class="line">CultureInfo cultureInfo = <span class="keyword">new</span> CultureInfo(_applicationObject.LocaleID);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (cultureInfo.TwoLetterISOLanguageName == <span class="string">"zh"</span>)</span><br><span class="line">&#123;</span><br><span class="line">    System.Globalization.CultureInfo parentCultureInfo = cultureInfo.Parent;</span><br><span class="line">    resourceName = String.Concat(parentCultureInfo.Name, <span class="string">"Tools"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    resourceName = String.Concat(cultureInfo.TwoLetterISOLanguageName, <span class="string">"Tools"</span>);</span><br><span class="line">&#125;</span><br><span class="line">toolsMenuName = resourceManager.GetString(resourceName);</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>Unfortunately, this auto-generated code violates almost every known good coding practice. In particular, it gives no clues as to why <em>zh</em> is different, and why it’s handled separately.</p>
+<p>Visual Studio menus are localized in the following way: a resource file, CommandBar.resx, is added to the project. This resource file contains translations of all common menus in Visual Studio, and each entry is defined by appending the <a href="http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">two-letter ISO language code</a> to the menu name, so that the entry for <em>Debug</em> in Spanish, for example, is <strong>esDebug</strong>.</p>
+<p>There are two separate entries for both Traditional and Simplified Chinese in the resource file, and the entries are prefixed with zh-CHS and zh-CHT (zh is a short for <a href="http://en.wiktionary.org/wiki/Zh%C5%8Dngw%C3%A9n" target="_blank">Zhōngwén</a>). Those identifiers refer to the old culture names. Since Windows Vista, the <a href="http://blogs.msdn.com/b/shawnste/archive/2007/12/13/zh-hans-zh-hant-and-the-old-zh-chs-zh-cht.aspx" target="_blank">new <em>zh-Hans</em> and <em>zh-Hant</em></a> names are used, and the older names are kept for backwards compatibility. They can be found in the <a href="http://msdn.microsoft.com/en-us/library/system.globalization.cultureinfo.parent.aspx" target="_blank">Parent property</a> of the CultureInfo, specifying the current Visual Studio <a href="http://msdn.microsoft.com/en-us/library/0h88fahh.aspx" target="_blank">Locale ID (LCID)</a>.</p>
+<p>Now that I had an understanding why <em>zh</em> was different, I was able to solve the bug by simply checking for the Chinese culture, and returning the correct identifier:</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">string</span> <span class="title">GetCurrentLocaleName</span>(<span class="params">CultureInfo cultureInfo</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Chinese (Traditional and Simplified) use "old" locale code,</span></span><br><span class="line">    <span class="comment">// zh-CHT and zh-CHS, which is the name of the parent culture</span></span><br><span class="line">    <span class="keyword">if</span> (cultureInfo.TwoLetterISOLanguageName == ChineseTwoLetterISOLanguageName)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> cultureInfo.Parent.Name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> cultureInfo.TwoLetterISOLanguageName;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2011/03/upgrading-tortoisehg-to-v2-0/" rel="next" title="Upgrading TortoiseHg to v2.0">
+                <i class="fa fa-chevron-left"></i> Upgrading TortoiseHg to v2.0
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2011/03/book-review-zero-day-a-novel-by-mark-russinovich/" rel="prev" title="Book Review: Zero Day: A Novel by Mark Russinovich">
+                Book Review: Zero Day: A Novel by Mark Russinovich <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/601206?v=3&s=460" alt="Igal Tabachnik">
+          <p class="site-author-name" itemprop="name">Igal Tabachnik</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hmemcpy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/hmemcpy" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/story/8205" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  StackOverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://il.linkedin.com/in/igaltabachnik" target="_blank" title="LinkedIn">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  LinkedIn
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Igal Tabachnik</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://hmemcpy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://hmemcpy.com/2011/03/when-your-software-doesnt-work-in-china/';
+          this.page.identifier = '2011/03/when-your-software-doesnt-work-in-china/';
+          this.page.title = 'When your software doesn\'t work in China';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hmemcpy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

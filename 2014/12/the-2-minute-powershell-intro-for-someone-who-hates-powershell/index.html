@@ -1,0 +1,762 @@
+<!doctype html>
+
+
+
+
+<html class="theme-next pisces" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="lYE6Wy4AMVpA-paUiNWFLIZFk8vqATN4AedYdumNuVo">
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=IBM Plex Sans:300,300italic,400,400italic,700,700italic|Roboto Condensed:300,300italic,400,400italic,700,700italic|Gloria Hallelujah:300,300italic,400,400italic,700,700italic|Fira Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="In Absentia" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1">
+
+
+
+
+
+
+<meta name="description" content="Hi, I’m a developer, and I hate PowerShell*. For no reason in particular, PowerShell just never seemed that appealing for me as a developer, as it was always marketed towards sysadmins. And I never li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The 2-minute PowerShell intro for someone who &quot;hates PowerShell&quot;">
+<meta property="og:url" content="http://hmemcpy.com/2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/index.html">
+<meta property="og:site_name" content="In Absentia">
+<meta property="og:description" content="Hi, I’m a developer, and I hate PowerShell*. For no reason in particular, PowerShell just never seemed that appealing for me as a developer, as it was always marketed towards sysadmins. And I never li">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://hmemcpy.com/2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/image.png">
+<meta property="og:updated_time" content="2019-02-27T05:10:03.544Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The 2-minute PowerShell intro for someone who &quot;hates PowerShell&quot;">
+<meta name="twitter:description" content="Hi, I’m a developer, and I hate PowerShell*. For no reason in particular, PowerShell just never seemed that appealing for me as a developer, as it was always marketed towards sysadmins. And I never li">
+<meta name="twitter:image" content="http://hmemcpy.com/2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/image.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: false,
+    duoshuo: {
+      userId: 'undefined',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://hmemcpy.com/2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/">
+
+
+
+
+
+  <title>The 2-minute PowerShell intro for someone who "hates PowerShell" | In Absentia</title>
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70273-3', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">In Absentia</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">by Igal Tabachnik</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-rss">
+          <a href="/atom.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-rss"></i> <br>
+            
+            Subscribe
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://hmemcpy.com/2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Igal Tabachnik">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/601206?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="In Absentia">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">The 2-minute PowerShell intro for someone who "hates PowerShell"</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2014-12-10T12:06:25+00:00">
+                2014-12-10
+              </time>
+            
+
+            
+
+            
+            
+              <span class="post-edit">
+                <span class="post-meta-divider">|</span>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <a href="https://github.com/hmemcpy/hmemcpy.com/edit/master/source/_posts/2014-12-10-the-2-minute-powershell-intro-for-someone-who-hates-powershell.md">Edit this page</a>
+              </span>
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Hi, I’m a developer, and I hate PowerShell<sup>*</sup>. For no reason in particular, PowerShell just never seemed that appealing for me as a developer, as it was always marketed towards sysadmins. And I never liked the syntax &ndash; all those dollar signs reminded me of PHP.</p>
+<a id="more"></a>
+<p>This recently changed, however. A client had a set of legacy perl scripts which nobody could maintain anymore &ndash; and I was tasked with rewriting them. Having recently spent some time writing a script for <a href="http://boxstarter.org/" target="_blank" rel="noopener">Boxstarter</a> &ndash; an amazing tool that allows you to automate software and environment installations of new machines, powered by <a href="https://chocolatey.org/" target="_blank" rel="noopener">Chocolatey</a>, in PowerShell, I thought that it could be a good fit for the task. I knew the language is powerful enough to allow the creation of those very useful tools, so I decided to give it a shot. I was not disappointed!</p>
+<p>Luckily, you already have all the tools you need to get started! Every Windows machine comes with both PowerShell and PowerShell ISE (Integrated Scripting Environment) already installed.</p>
+<img src="/2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/image.png" title="Figure 1: PowerShell ISE &ndash; an IDE for PowerShell with code completion (IntelliSense) and an integrated debugger.">
+<p>Here’s what you need to know about PowerShell:</p>
+<p>You can do most of your development and debugging in the ISE &ndash; no need to type individual instructions in the PowerShell console. It’s great as a REPL, but nothing beats an IDE. Tip: select a few lines in the ISE and press F8 &ndash; only those lines will be executed!</p>
+<h3 id="What’s-so-great-about-PowerShell"><a href="#What’s-so-great-about-PowerShell" class="headerlink" title="What’s so great about PowerShell?"></a>What’s so great about PowerShell?</h3><p><strong>It’s dynamic</strong> &ndash; every variable can be treated as anything, but also support explicit typing (which are checked at runtime). Variables are prefixed with the <code>$</code> sign.</p>
+<figure class="highlight ps"><table><tr><td class="code"><pre><span class="line"><span class="variable">$my</span> = <span class="string">"some string"</span></span><br><span class="line"><span class="variable">$my</span> = <span class="number">23</span></span><br><span class="line"><span class="comment"># Runtime error: Cannot convert value "23" to type "System.Xml.XmlDocument"</span></span><br><span class="line">[xml]<span class="variable">$myXml</span> = <span class="variable">$my</span></span><br></pre></td></tr></table></figure>
+<p><strong>It’s pipelined</strong> &ndash; every variable or the output of every function can be piped as an input to another function using the pipe (<code>|</code>) operator. It’s extremely useful when dealing with collections and other enumerable objects &ndash; allowing you to filter the elements and transform the result into whatever you need.</p>
+<figure class="highlight ps"><table><tr><td class="code"><pre><span class="line"><span class="comment"># a LINQ-like querying with pipelining. </span></span><br><span class="line"><span class="comment"># The $_ is similar to C#'s lambda argument "x", e.g. Where(x =&gt; x.Name == "chrome") </span></span><br><span class="line"><span class="variable">$ids</span> = <span class="built_in">Get-Process</span> | <span class="built_in">Where-Object</span> &#123;<span class="variable">$_</span>.Name <span class="nomarkup">-eq</span> <span class="string">"chrome"</span> &#125; | <span class="built_in">Select-Object</span> -Property ID </span><br><span class="line"></span><br><span class="line"><span class="comment"># Where-Object and Select-Object can also be written "where" and "select": </span></span><br><span class="line"><span class="variable">$ids</span> = <span class="built_in">Get-Process</span> | where &#123;<span class="variable">$_</span>.Name <span class="nomarkup">-like</span> <span class="string">"chrome"</span> &#125; | select -Property ID </span><br><span class="line"><span class="comment"># "where" and "select" are aliases. Use Get-Alias to see all aliases in PowerShell.</span></span><br></pre></td></tr></table></figure>
+<p><strong>It supports everything you know from .NET &ndash;</strong> although PowerShell defines its own idioms with regards to common operations, such as formatting strings for joining paths, you can use all objects from .NET to do the same thing.</p>
+<figure class="highlight ps"><table><tr><td class="code"><pre><span class="line"><span class="variable">$combined</span> = <span class="built_in">Join-Path</span> <span class="variable">$rootDirectory</span> <span class="string">"mySubdirectory"</span> </span><br><span class="line"><span class="comment"># can be written as: $combined = [System.IO.Path]::Combine($rootDirectory, "mySubdirectory")</span></span><br></pre></td></tr></table></figure>
+<p><strong>It’s concise</strong> &ndash; everything in PowerShell can be verbose or very concise. By leveraging aliases there are many ways to say what you mean. Here’s an example: the following function gets a list of changed files between two SVN revisions, by executing the <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.svn.c.diff.html" target="_blank" rel="noopener">svn diff</a> command, outputting the result as XML which looks like this:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?</span>xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;<span class="name">diff</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">paths</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span></span></span><br><span class="line"><span class="tag">   <span class="attr">item</span>=<span class="string">"added"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">props</span>=<span class="string">"none"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">kind</span>=<span class="string">"file"</span>&gt;</span>hello.txt<span class="tag">&lt;/<span class="name">path</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span></span></span><br><span class="line"><span class="tag">   <span class="attr">item</span>=<span class="string">"modified"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">props</span>=<span class="string">"none"</span></span></span><br><span class="line"><span class="tag">   <span class="attr">kind</span>=<span class="string">"file"</span>&gt;</span>other.txt<span class="tag">&lt;/<span class="name">path</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;/<span class="name">paths</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">diff</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>This XML is stored into an <code>$output</code> object, which is defined as a .NET <code>XmlDocument</code>. The object is than being queried via XPath to get only items of kind <em>˜file’ which are </em>˜modified’. Finally, only the text of the node is selected.</p>
+<figure class="highlight ps"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> Get-SvnDiff(<span class="variable">$fromRevision</span>, <span class="variable">$toRevision</span>)</span><br><span class="line">&#123;</span><br><span class="line">  [xml]<span class="variable">$output</span> = &amp; svn diff -r $(<span class="string">"&#123;0&#125;:&#123;1&#125;"</span> -f <span class="variable">$fromRevision</span>, <span class="variable">$toRevision</span>) --summarize --xml</span><br><span class="line">  <span class="variable">$output</span>.SelectNodes(<span class="string">"/diff/paths/path[@item='modified' and @kind='file']"</span>) | % &#123; <span class="variable">$_</span>.<span class="string">"#text"</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Quite a lot is going on in this example, which demonstrate the Power of PowerShell:</p>
+<ul>
+<li>A process is started with the <code>&amp;</code> symbol. Can also be started with <a href="http://technet.microsoft.com/en-us/library/hh849848.aspx" target="_blank" rel="noopener">Start-Process</a> for more options.</li>
+<li>Strings can be formatted with <code>-f</code>, however in this case they are a part of an expression, and have to be escaped into their own expression by using <code>$()</code>.</li>
+<li>The <code>%</code> symbol is an alias of <code>foreach</code>, which is an alias of <code>ForEach-Object</code>. Use <code>Get-Alias -Definition ForEach-Object</code> to see all the alias definitions, or <code>Get-Alias %</code>, for example.</li>
+<li>The last line in a function (or selection) is what gets returned (or printed out). In this case, the result of the last line is a single string, containing the value *˜other.txt’ (it’s the only modified file). If there was more than one result, the return would be an array.</li>
+<li>Finally, to call this method, we use <code>Get-SvnDiff 1000 2000</code>, and we can use the pipe operator (<code>|</code>) to continue modifying the returned values.</li>
+</ul>
+<p>And that’s it! Sure, there is way more to know about PowerShell, but this should be more than enough to get started, or at least, not to get lost when reading and writing simple scripts.</p>
+<p>Happy scripting!</p>
+<hr>
+
+<p><sup>*</sup>Well, slightly less now.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/my-top-3-favorite-windows-productivity-tools/" rel="next" title="My top 3 favorite Windows productivity tools!">
+                <i class="fa fa-chevron-left"></i> My top 3 favorite Windows productivity tools!
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/12/how-to-get-changed-files-from-svn-between-two-revisions-with-powershell/" rel="prev" title="How to get changed files from SVN between two revisions with PowerShell">
+                How to get changed files from SVN between two revisions with PowerShell <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://avatars2.githubusercontent.com/u/601206?v=3&s=460" alt="Igal Tabachnik">
+          <p class="site-author-name" itemprop="name">Igal Tabachnik</p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/hmemcpy" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/hmemcpy" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://stackoverflow.com/users/story/8205" target="_blank" title="StackOverflow">
+                  
+                    <i class="fa fa-fw fa-stack-overflow"></i>
+                  
+                  StackOverflow
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://il.linkedin.com/in/igaltabachnik" target="_blank" title="LinkedIn">
+                  
+                    <i class="fa fa-fw fa-linkedin"></i>
+                  
+                  LinkedIn
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2009 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Igal Tabachnik</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://hmemcpy.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://hmemcpy.com/2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/';
+          this.page.identifier = '2014/12/the-2-minute-powershell-intro-for-someone-who-hates-powershell/';
+          this.page.title = 'The 2-minute PowerShell intro for someone who \"hates PowerShell\"';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hmemcpy.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
